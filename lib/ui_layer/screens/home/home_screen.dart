@@ -12,9 +12,9 @@ import 'package:nextleveltask/ui_layer/widgets/home_widgets/currency_item.dart';
 import 'package:nextleveltask/ui_layer/widgets/home_widgets/edit_balance_model_sheet.dart';
 
 class HomeScreen extends StatelessWidget {
-   HomeScreen({Key? key}) : super(key: key);
-   List<String> startCurrencies = ['egp','eur','aed'];
-   List<String> startCurrenciesNames = ['Egyptian','Euro','United Arab'];
+  HomeScreen({Key? key}) : super(key: key);
+  List<String> startCurrencies = ['egp', 'eur', 'aed'];
+  List<String> startCurrenciesNames = ['Egyptian', 'Euro', 'United Arab'];
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -64,13 +64,10 @@ class HomeScreen extends StatelessWidget {
                     ),
                   ),
                   BlocProvider(
-                    create: (context)=> CalculateCurrenciesCubit(),
-                    child: BlocBuilder<CalculateCurrenciesCubit,CalculateCurrenciesStates>(
-                      builder: (context,state){
-                        CalculateCurrenciesCubit.get(context).calculateCurrenciesData(
-                            GetCurrenciesValuesCubit.get(context).allCurrenciesValues,
-                            getBalance() ?? 0, startCurrencies
-                        );
+                    create: (context) => CalculateCurrenciesCubit(),
+                    child: BlocBuilder<CalculateCurrenciesCubit, CalculateCurrenciesStates>(
+                      builder: (context, state) {
+                        CalculateCurrenciesCubit.get(context).calculateCurrenciesData(GetCurrenciesValuesCubit.get(context).allCurrenciesValues, getBalance() ?? 0, startCurrencies);
                         return Column(
                           mainAxisAlignment: MainAxisAlignment.start,
                           crossAxisAlignment: CrossAxisAlignment.start,
@@ -104,20 +101,15 @@ class HomeScreen extends StatelessWidget {
                                           Container(
                                             width: 40,
                                             height: 40,
-                                            decoration: const BoxDecoration(
-                                                color: Colors.white,
-                                                shape: BoxShape.circle),
+                                            decoration: const BoxDecoration(color: Colors.white, shape: BoxShape.circle),
                                             child: Center(
                                               child: Container(
                                                 width: 35,
                                                 height: 35,
                                                 decoration: const BoxDecoration(
-                                                  // color: Colors.green,
+                                                    // color: Colors.green,
                                                     shape: BoxShape.circle,
-                                                    image: DecorationImage(
-                                                        image: NetworkImage(
-                                                            'https://upload.wikimedia.org/wikipedia/commons/4/4a/Mohamed_Salah_2018.jpg'),
-                                                        fit: BoxFit.cover)),
+                                                    image: DecorationImage(image: NetworkImage('https://upload.wikimedia.org/wikipedia/commons/4/4a/Mohamed_Salah_2018.jpg'), fit: BoxFit.cover)),
                                               ),
                                             ),
                                           ),
@@ -135,14 +127,12 @@ class HomeScreen extends StatelessWidget {
                               height: MediaQuery.of(context).size.height / 30,
                             ),
                             Padding(
-                              padding: const EdgeInsets.only(
-                                  left: 24.0, right: 24.0, top: 16.0),
+                              padding: const EdgeInsets.only(left: 24.0, right: 24.0, top: 16.0),
                               child: Column(
                                 mainAxisAlignment: MainAxisAlignment.start,
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
-                                  const Text(
-                                    'TOTAL BALANCE',
+                                  const Text('TOTAL BALANCE',
                                     style: TextStyle(
                                       fontSize: 18,
                                       color: Colors.grey,
@@ -157,13 +147,11 @@ class HomeScreen extends StatelessWidget {
                                       SizedBox(
                                         child: Column(
                                           mainAxisAlignment: MainAxisAlignment.start,
-                                          crossAxisAlignment:
-                                          CrossAxisAlignment.start,
+                                          crossAxisAlignment: CrossAxisAlignment.start,
                                           children: [
                                             Row(
                                               children: [
-                                                const Text(
-                                                  '\$',
+                                                const Text('\$',
                                                   style: TextStyle(
                                                     fontSize: 35,
                                                     color: Colors.white,
@@ -173,8 +161,7 @@ class HomeScreen extends StatelessWidget {
                                                 const SizedBox(
                                                   width: 4,
                                                 ),
-                                                Text(
-                                                  '${getBalance() ?? 0}',
+                                                Text('${getBalance() ?? 0}',
                                                   style: const TextStyle(
                                                     fontSize: 28,
                                                     color: Colors.white,
@@ -186,9 +173,7 @@ class HomeScreen extends StatelessWidget {
                                             Container(
                                               height: 2,
                                               color: Colors.grey,
-                                              width:
-                                              MediaQuery.of(context).size.width /
-                                                  2.2,
+                                              width: MediaQuery.of(context).size.width / 2.2,
                                             ),
                                           ],
                                         ),
@@ -211,16 +196,11 @@ class HomeScreen extends StatelessWidget {
                                         },
                                         child: Container(
                                           decoration: BoxDecoration(
-                                            border: Border.all(
-                                                color: Colors.grey, width: 2),
+                                            border: Border.all(color: Colors.grey, width: 2),
                                             borderRadius: BorderRadius.circular(18),
                                           ),
                                           child: Padding(
-                                            padding: const EdgeInsets.only(
-                                                left: 8.0,
-                                                right: 8.0,
-                                                top: 2,
-                                                bottom: 2),
+                                            padding: const EdgeInsets.only(left: 8.0, right: 8.0, top: 2, bottom: 2),
                                             child: Center(
                                               child: Row(
                                                 children: const [
@@ -232,10 +212,8 @@ class HomeScreen extends StatelessWidget {
                                                   SizedBox(
                                                     width: 8,
                                                   ),
-                                                  Text(
-                                                    'Edit',
-                                                    style: TextStyle(
-                                                        color: Colors.white),
+                                                  Text('Edit',
+                                                    style: TextStyle(color: Colors.white),
                                                   ),
                                                 ],
                                               ),
@@ -256,21 +234,14 @@ class HomeScreen extends StatelessWidget {
                               child: Column(
                                 children: [
                                   Padding(
-                                    padding: const EdgeInsets.only(
-                                        top: 8.0,
-                                        bottom: 8.0,
-                                        left: 24.0,
-                                        right: 24.0),
+                                    padding: const EdgeInsets.only(top: 8.0, bottom: 8.0, left: 24.0, right: 24.0),
                                     child: Row(
-                                      mainAxisAlignment:
-                                      MainAxisAlignment.spaceBetween,
+                                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
                                       children: const [
-                                        Text(
-                                          'Currency',
+                                        Text('Currency',
                                           style: TextStyle(color: Colors.grey),
                                         ),
-                                        Text(
-                                          'Make Changes',
+                                        Text('Make Changes',
                                           style: TextStyle(color: Colors.grey),
                                         ),
                                       ],
@@ -282,25 +253,20 @@ class HomeScreen extends StatelessWidget {
                                   Column(
                                     children: [
                                       ListView.separated(
-                                        padding: const EdgeInsets.only(
-                                            left: 16.0, right: 16.0),
+                                        padding: const EdgeInsets.only(left: 16.0, right: 16.0),
                                         shrinkWrap: true,
                                         itemBuilder: (context, index) => CurrencyItem(
-                                          title: '${startCurrenciesNames[index]}',
+                                          title: GetCurrenciesValuesCubit.get(context).myCurrencies[index].name,
                                           iconPath: 'assets/icons/drawer_icon.png',
-                                          currency: '${CalculateCurrenciesCubit.get(context).finalValues[index]}',
-                                          currencyType: startCurrencies[index],
+                                          currency: ('${GetCurrenciesValuesCubit.get(context).myCurrencies[index].amountRate * double.parse('${getBalance() == null ? 0 : getBalance()}')}'),
+                                          currencyType: GetCurrenciesValuesCubit.get(context).myCurrencies[index].code,
                                         ),
-                                        separatorBuilder: (context, index) => SizedBox(
-                                          height:
-                                          MediaQuery.of(context).size.height / 50,
+                                        separatorBuilder: (context, index) => SizedBox(height: MediaQuery.of(context).size.height / 50,
                                         ),
-                                        itemCount: startCurrencies.length,
+                                        itemCount: GetCurrenciesValuesCubit.get(context).myCurrencies.length,
                                       ),
-
                                       SizedBox(
-                                        height:
-                                        MediaQuery.of(context).size.height / 50,
+                                        height: MediaQuery.of(context).size.height / 50,
                                       ),
                                       AddCurrencyItem(onPress: () {
                                         showModalBottomSheet(
@@ -338,5 +304,4 @@ class HomeScreen extends StatelessWidget {
       ),
     );
   }
-
 }

@@ -32,11 +32,11 @@ class AddCurrencyItem extends StatelessWidget {
                 SizedBox(
                   width: MediaQuery.of(context).size.width / 20,
                 ),
-                Container(
+                const SizedBox(
                   width: 40,
                   height: 40,
                   //color: Colors.red,
-                  child:const Center(child: Icon(Icons.add_circle_outline_rounded,color: Colors.black,size: 30,),),
+                  child:Center(child: Icon(Icons.add_circle_outline_rounded,color: Colors.black,size: 30,),),
                 ),
                 SizedBox(
                   width: MediaQuery.of(context).size.width / 20,

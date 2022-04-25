@@ -11,16 +11,15 @@ class CalculateCurrenciesCubit extends Cubit<CalculateCurrenciesStates>  {
    calculateCurrenciesData(
     Map<String, dynamic> allCurrenciesValues,
     balance,
-  List  currencyType,
+    List currencyType,
   ) {
      for(int i = 0 ; i < currencyType.length ;i++ ){
        allCurrenciesValues.forEach((key, value) {
          if (key == currencyType[i]) {
-           finalValues.add('${value*num.parse(balance)}');
+           finalValues.add('${value*num.parse(balance.toString())}');
          }
        });
      }
      emit(CalculateCurrenciesStateSuccess(finalValues));
-
   }
 }

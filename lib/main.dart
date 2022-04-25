@@ -8,9 +8,9 @@ import 'package:nextleveltask/ui_layer/screens/login/login_screen.dart';
 import 'logic_layer/calculate_currency_cubit/cubit.dart';
 import 'logic_layer/get_all_currencies_cubit/cubit.dart';
 
-void main() async{
+void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-   await sharedPreferences();
+  await sharedPreferences();
   await DioHelper.init();
   runApp(const MyApp());
 }
@@ -21,17 +21,18 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MultiBlocProvider(
       providers: [
-        BlocProvider(create:(context)=> LayoutCubit()),
-       // BlocProvider(create:(context)=> CalculateCurrenciesCubit()),
+        BlocProvider(create: (context) => LayoutCubit()),
+        BlocProvider(
+            create: (context) =>
+                GetAllCurrenciesCubit()..getAllCurrenciesData()),
       ],
       child: MaterialApp(
         title: 'Flutter Demo',
         theme: ThemeData(
           primarySwatch: Colors.blue,
         ),
-        home:  LoginScreen(),
+        home: LoginScreen(),
       ),
     );
   }
 }
-

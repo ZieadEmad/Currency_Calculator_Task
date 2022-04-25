@@ -23,9 +23,11 @@ Future<bool> saveBalance(String balance) => preferences.setString('balance', bal
 Future<bool> removeBalance() => preferences.remove('balance');
 String? getBalance() => preferences.getString('balance');
 
+//save balance
+Future<bool> setMyCurrencies(List<String> myCurrencies) => preferences.setStringList('myCurrencies', myCurrencies);
+List<String>? getMyCurrencies() => preferences.getStringList('myCurrencies') ?? [];
+
 //save lang
 Future<bool> saveLanguage(String language) => preferences.setString('language', language);
 Future<bool> removeLanguage() => preferences.remove('language');
 String? getLanguage() => preferences.getString('language');
-
-
