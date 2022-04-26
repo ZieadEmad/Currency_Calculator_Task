@@ -1,6 +1,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.ziead.nextleveltask">
-   <application
+    <uses-permission android:name="android.permission.INTERNET" />
+
+    <application
         android:label="nextleveltask"
         android:icon="@mipmap/ic_launcher">
         <activity
